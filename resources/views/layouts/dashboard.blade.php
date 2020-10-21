@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-
 <!-- Mirrored from demo.frontted.com/stackadmin/134/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 Oct 2020 15:55:22 GMT -->
 <head>
     <meta charset="utf-8">

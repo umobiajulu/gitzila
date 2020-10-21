@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     
-<!-- Mirrored from demo.serifly.com/cloudhub/html/home-light-header.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 02 Oct 2020 08:33:31 GMT -->
-<head>
+    <!-- Mirrored from demo.serifly.com/cloudhub/html/home-light-header.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 02 Oct 2020 08:33:31 GMT -->
+    <head>
         <meta charset="UTF-8">
         <title>{{ env("APP_NAME") }} - Deploy on push</title>
         <meta name="description" content="{{ env('APP_NAME') }} deploys your web application whenever you push to a git repository">
