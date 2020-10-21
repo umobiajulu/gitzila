@@ -37,7 +37,7 @@
                     <p class="text-muted">
                     1. If you have not generated ssh or you feel that your previous ssh is compromised, click on this link to <a href="javascript:void(0)" onclick="return confirm('are you sure you want to generate new ssh key pair') ? ssh() : ''">generate new ssh for your  {{ user()->host }} account.</a> <br>
                     2. Click on this link to  <a href="{{ route('download') }}">download the ssh keys you generated.</a> <br>
-                    3. Login to your server home folder and unzip the contents of "keys.zip" you downloaded into ".ssh" folder <br>
+                    3. Login to your server home folder and unzip the contents of file you downloaded into ".ssh" folder <br>
                     4. The next thing to do is to copy the content of "id_rsa.pub", which is your public key, to your {{ user()->host }} account. follow this tutorial and learn 
                     @if(user()->host == 'bitbucket')
                         <a target="_blank" href="https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#-Step-3.-Add-the-public-key-to-your-Account-settings">how to add public key to a bitbucket account</a>
