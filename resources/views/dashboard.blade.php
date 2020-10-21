@@ -107,7 +107,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="filter_name">Server Username *</label>
-                            <input onkeyup="generateUrl()" id="server_username" type="text" class="form-control" placeholder="e.g    emitcomng" value="">
+                            <input onkeyup="generateUrl()" id="server_username" type="text" class="form-control" placeholder="e.g    emitng" value="">
                         </div>
                     </div>
                     <div class="col-md-4">

@@ -5,7 +5,7 @@
 <head>
         <meta charset="UTF-8">
         <title>{{ env("APP_NAME") }} - Deploy on push</title>
-        <meta name="description" content="Cloudhub is a modern, responsive and easy to customize HTML template, perfectly suited for hosting and technology companies.">
+        <meta name="description" content="{{ env('APP_NAME') }} deploys your web application whenever you push to a git repository">
         <meta name="keywords" content="html template, responsive, retina, cloud hosting, technology, startup">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <!-- Icons -->
@@ -53,7 +53,7 @@
             <section class="footer-secondary">
                 <div class="container">
                     <p>
-                        Copyright {{ \Carbon\Carbon::now()->format('Y') }} &copy; {{ env("APP_NAME") }} Cloud Services.</a> <a target="_blank" href="https://twitter.com/umobiajulu"><i class="fab fa-twitter"></i></a>
+                        Copyright {{ \Carbon\Carbon::now()->format('Y') }} &copy; {{ env("APP_NAME") }} Cloud Services.</a> <a target="_blank" href="https://twitter.com/emitng"><i class="fab fa-twitter"></i></a>
                     </p>
                 </div>
             </section>

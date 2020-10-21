@@ -121,13 +121,13 @@
                             <div class="sidebar-heading sidebar-m-t">Contact</div>
                             <ul class="sidebar-menu">
                                 <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" target="_blank" href="https://twitter.com/umobiajulu">
+                                    <a class="sidebar-menu-button" target="_blank" href="https://twitter.com/emitng">
                                         <i class="sidebar-menu-icon sidebar-menu-icon--left fas fa-award"></i>
                                         <span class="sidebar-menu-text">Sponsor {{ env("APP_NAME") }}</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" target="_blank" href="https://twitter.com/umobiajulu">
+                                    <a class="sidebar-menu-button" target="_blank" href="https://twitter.com/emitng">
                                         <i class="sidebar-menu-icon sidebar-menu-icon--left fas fa-award"></i>
                                         <span class="sidebar-menu-text">Contribute to {{ env("APP_NAME") }}</span>
                                     </a>
