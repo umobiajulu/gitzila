@@ -23,7 +23,8 @@
                 <div class="col-lg-12 card-body">
                     <p><strong class="headings-color">Hint</strong> : <code class="text-danger"> please read carefully, if you skip any line, your app may not work</code></p>
                     <p class="text-muted">
-                     1. If your app is running on a Virtual Private Server, {{ env("APP_NAME") }} is what you need. <br><br>
+                     1. If your app is running on Shared Hosting, contact your provider and ask them to enable ssh for you. If ssh is not enabled on your Shared Hosting, this option will not work.
+                     If your app is running on a reseller hosting, you probably may not have ssh. <br><br>
                      2. Ssh is generated per account not per project, so if you have multiple project in one account, you need only one ssh. 
                      Anytime you generate new ssh, you will have to replace your previous ssh with the new one both in server and in your {{ user()->host }} account for your apps to continue deploying automatically. <br><br>
                      3. If there are files or folders that are not part of your git repo but crucial in your app, you will have to ignore them manually using ".gitignore" file else our system will unlink them while trying to configure the app
