@@ -11,7 +11,7 @@
                             <mark>Deploy</mark> on push
                         </h1>
                         <p>
-                            automatically deploy web applications to any kind of server whenever you push to a git repository
+                            automatically deploy web applications to virtual private server whenever you push to a git repository
                         </p>
                     </header>
                     <img src="uploads/server-shared.png" alt="">
