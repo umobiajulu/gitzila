@@ -132,7 +132,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="filter_name">Server SFTP Port *</label>
-                                                <input onkeyup="generateSshUrl()" id="ftp_server_port" type="text" class="form-control" placeholder="e.g    22" value="22">
+                                                <input onkeyup="generateFtpUrl()" id="ftp_server_port" type="text" class="form-control" placeholder="e.g    22" value="22">
                                             </div>
                                         </div>
                                     </div>
@@ -297,7 +297,7 @@
                 alert("all fields marked with * are required and must be correct")
             }
             else{
-                $.get("{{ route('configure') }}", { server_connection : 'ftp', server_root : server_root, repo_name : repo_name, server_address : server_address, server_username : server_username, server_password : server_password })
+                $.get("{{ route('configure') }}", { server_connection : 'ftp', server_root : server_root, repo_name : repo_name, server_address : server_address, server_username : server_username, server_password : server_password, server_port : server_port })
                 .done(function(response){
                     alert(response.message);
                 })
