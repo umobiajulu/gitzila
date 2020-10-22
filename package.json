@@ -19,6 +19,7 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
+        "basic-ftp": "^4.6.2",
         "ssh2": "^0.8.9"
     }
 }
