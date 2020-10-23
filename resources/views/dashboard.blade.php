@@ -72,7 +72,7 @@
                         <br><br>
                         ** Note that server root folder is the FULL PATH to the final destination folder  where our system will dump your repository. When you are using Shared Hosting,
                         notice that your full path will start with something like /home/your_username/public_html... login to filemanager and look at the top most folder to trace your full path. Make sure it is correct. 
-                        Server address can be IP address or a name pointing to the IP address of the server. The default SFTP Port is 22 if yours is different, replace 22 with your stfp port. Or you can contact your provider to know your sftp port
+                        Server address can be IP address or a name pointing to the IP address of the server. The default SFTP Port is 22 if yours is different, replace 22 with your stfp port. Or you can contact your provider to know your sftp port(very important)
                     </p>
                 </div>
             </div>
@@ -84,75 +84,11 @@
                         <h4 class="card-header__title flex m-0">Configuration Options</h4>
                     </div>
                     <div class="card-header card-header-tabs-basic nav" role="tablist">
-                        <a href="#ftp" class="active" data-toggle="tab" role="tab" aria-controls="ftp" aria-selected="true">SFTP Connection</a>
-                        <a href="#ssh" data-toggle="tab" role="tab" aria-selected="false">SSH Connection</a>
+                        <a href="#ssh" class="active" data-toggle="tab" role="tab" aria-controls="ssh" aria-selected="true">SSH Connection</a>
+                        <a href="#ftp" data-toggle="tab" role="tab" aria-selected="false">SFTP Connection</a>
                     </div>
                     <div class="card-body tab-content">
-                        <div class="tab-pane active show fade" id="ftp">
-                            <div class="card card-form d-flex flex-column flex-sm-row">
-                                <div class="card-form__body card-body-form-group flex">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="filter_name">Server Root Folder *</label>
-                                                <input onkeyup="generateFtpUrl()" id="ftp_server_root" type="text" class="form-control" placeholder="e.g    /home/emitng/public_html/emit" value="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="filter_name">Repository Name *</label>
-                                                <input onkeyup="generateFtpUrl()" id="ftp_repo_name" type="text" class="form-control" placeholder="e.g    emit" value="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card card-form d-flex flex-column flex-sm-row">
-                                <div class="card-form__body card-body-form-group flex">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="filter_name">Server Address *</label>
-                                                <input onkeyup="generateFtpUrl()" id="ftp_server_address" type="text" class="form-control" placeholder="e.g    emit.com.ng" value="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="filter_name">Server Username *</label>
-                                                <input onkeyup="generateFtpUrl()" id="ftp_server_username" type="text" class="form-control" placeholder="e.g    emitng" value="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="filter_name">Server Password *</label>
-                                                <input onchange="generateFtpUrl()" id="ftp_server_password" type="hidden" class="form-control" placeholder="e.g    *******" value="">
-                                                <input onkeyup="password()" id="ftp_password" type="text" class="form-control" placeholder="e.g    *******" value="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="filter_name">Server SFTP Port *</label>
-                                                <input onkeyup="generateFtpUrl()" id="ftp_server_port" type="text" class="form-control" placeholder="e.g    22" value="22">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card card-form d-flex flex-column flex-sm-row">
-                                <div class="card-form__body card-body-form-group flex">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="filter_name">Your Resulting FTP Webhook url</label>
-                                                <input id="ftp_url" type="text" class="form-control" placeholder="" value="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="javascript:void(0)" onclick="configureFtp()" class="btn btn-primary">complete server ftp configuration</a>
-                        </div>
-                        <div class="tab-pane" id="ssh">
+                        <div class="tab-pane active show fade" id="ssh">
                             <div class="card card-form d-flex flex-column flex-sm-row">
                                 <div class="card-form__body card-body-form-group flex">
                                     <div class="row">
@@ -232,6 +168,70 @@
                                 </div>
                             </div>
                             <a href="javascript:void(0)" onclick="configureSsh()" class="btn btn-primary">complete server ssh configuration</a>
+                        </div>
+                        <div class="tab-pane" id="ftp">
+                            <div class="card card-form d-flex flex-column flex-sm-row">
+                                <div class="card-form__body card-body-form-group flex">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="filter_name">Server Root Folder *</label>
+                                                <input onkeyup="generateFtpUrl()" id="ftp_server_root" type="text" class="form-control" placeholder="e.g    /home/emitng/public_html/emit" value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="filter_name">Repository Name *</label>
+                                                <input onkeyup="generateFtpUrl()" id="ftp_repo_name" type="text" class="form-control" placeholder="e.g    emit" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-form d-flex flex-column flex-sm-row">
+                                <div class="card-form__body card-body-form-group flex">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="filter_name">Server Address *</label>
+                                                <input onkeyup="generateFtpUrl()" id="ftp_server_address" type="text" class="form-control" placeholder="e.g    emit.com.ng" value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="filter_name">Server Username *</label>
+                                                <input onkeyup="generateFtpUrl()" id="ftp_server_username" type="text" class="form-control" placeholder="e.g    emitng" value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="filter_name">Server Password *</label>
+                                                <input onchange="generateFtpUrl()" id="ftp_server_password" type="hidden" class="form-control" placeholder="e.g    *******" value="">
+                                                <input onkeyup="password()" id="ftp_password" type="text" class="form-control" placeholder="e.g    *******" value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="filter_name">Server SFTP Port *</label>
+                                                <input onkeyup="generateFtpUrl()" id="ftp_server_port" type="text" class="form-control" placeholder="e.g    22" value="22">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-form d-flex flex-column flex-sm-row">
+                                <div class="card-form__body card-body-form-group flex">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="filter_name">Your Resulting FTP Webhook url</label>
+                                                <input id="ftp_url" type="text" class="form-control" placeholder="" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0)" onclick="configureFtp()" class="btn btn-primary">complete server ftp configuration</a>
                         </div>
                     </div>
                 </div>

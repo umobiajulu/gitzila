@@ -94,7 +94,7 @@ class UserController extends Controller
                 $server_root = $request->server_root;
                 $server_address = $request->server_address;
                 $server_username = $request->server_username;
-                $server_password = decrypt($request->server_password);
+                $server_password = $request->server_password ? decrypt($request->server_password) : NULL;
                 $server_port = $request->server_port;
                 $deployment_commands = $request->deployment_commands;
 
@@ -160,7 +160,7 @@ class UserController extends Controller
             $server_root = $request->server_root;
             $server_address = $request->server_address;
             $server_username = $request->server_username;
-            $server_password = decrypt($request->server_password);
+            $server_password = $request->server_password ? decrypt($request->server_password) : NULL;
             $server_port = $request->server_port;
             $configuration_commands = $request->configuration_commands;
 

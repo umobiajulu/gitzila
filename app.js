@@ -49,16 +49,17 @@ const server = http.createServer((req, res) => {
 
   	try{
 		if(check == 'ssh'){
+			var known_hosts = '/var/www/gitzila/storage/users/known_hosts'
 			var ssh_destination_folder = '/var/www/gitzila/storage/users/'+ unique_id +'/ssh'
 			var ftp_destination_folder = '/var/www/gitzila/storage/users/'+ unique_id +'/ftp'
-			exec('rm '+ ssh_destination_folder +' -rf && mkdir ' + ssh_destination_folder + ' && ssh-keygen -f ' + ssh_destination_folder + '/id_rsa -q -N "" && cd ' + ssh_destination_folder + ' && touch authorized_keys && cp id_rsa.pub authorized_keys && zip -r '+ host +'_keys.zip id_rsa id_rsa.pub authorized_keys && mkdir -p ' + ftp_destination_folder + ' && cp ' + ssh_destination_folder + '/id_rsa ' + ftp_destination_folder + '/id_rsa && chmod 400 ' + ftp_destination_folder + '/id_rsa');
+			exec('rm '+ ssh_destination_folder +' -rf && mkdir ' + ssh_destination_folder + ' && ssh-keygen -f ' + ssh_destination_folder + '/id_rsa -q -N "" -m pem && cd ' + ssh_destination_folder + ' && touch authorized_keys && touch known_hosts && cp '+ known_hosts +' known_hosts && cp id_rsa.pub authorized_keys && zip -r '+ host +'_keys.zip id_rsa id_rsa.pub authorized_keys known_hosts && mkdir -p ' + ftp_destination_folder + ' && cp ' + ssh_destination_folder + '/id_rsa ' + ftp_destination_folder + '/id_rsa && chmod 400 ' + ftp_destination_folder + '/id_rsa && chmod 400 ' + ssh_destination_folder + '/id_rsa');
 		}
 		else{
 			if(server_connection == 'ssh'){
 				const conn = new Client();
 				conn.on('ready', (req) => {
 					if(check == 'configure'){
-						conn.exec('cd '+ server_root +' && rm .git -rf && git init && git config user.email "'+ email +'" && git config user.name "'+ name +'" && git add . && git commit -am "initial commit" && git remote add gitzila '+ git_url +' && git fetch gitzila && git checkout gitzila/master && ' + configuration_commands.replace(",", " && ") , (err, stream) => {
+						conn.exec('cd '+ server_root +' && rm .git -rf && git init && git config user.email "'+ email +'" && git config user.name "'+ name +'" && git add . && git commit -am "initial commit" && git remote add gitzila '+ git_url +' && ssh-agent bash -c "ssh-add ~/.ssh/id_rsa; git fetch gitzila" && git checkout gitzila/master && ' + (configuration_commands != null ? configuration_commands.replace(",", " && ") : null) , (err, stream) => {
 							if (err) throw err;
 								stream.on('close', (code, signal) => {
 								conn.end();
@@ -70,7 +71,7 @@ const server = http.createServer((req, res) => {
 						});
 					}
 					if(check == 'deploy'){
-						conn.exec('cd '+ server_root +' && git pull gitzila master --allow-unrelated-histories && ' + deployment_commands.replace(",", " && "), (err, stream) => {
+						conn.exec('cd '+ server_root +' && ssh-agent bash -c "ssh-add ~/.ssh/id_rsa; git pull gitzila master --allow-unrelated-histories" && ' + (deployment_commands != null ? deployment_commands.replace(",", " && ") : null), (err, stream) => {
 							if (err) throw err;
 								stream.on('close', (code, signal) => {
 								conn.end();
@@ -85,7 +86,7 @@ const server = http.createServer((req, res) => {
 					host: server_address,
 					port: server_port,
 					username: server_username,
-					privateKey: readFileSync('./storage/users/'+ unique_id +'/id_rsa')
+					privateKey: readFileSync('/var/www/gitzila/storage/users/'+ unique_id +'/ssh/id_rsa')
 				});
 			}
 			else{
