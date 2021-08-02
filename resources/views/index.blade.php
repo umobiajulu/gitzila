@@ -11,7 +11,7 @@
                             <mark>Deploy</mark> on push
                         </h1>
                         <p>
-                            automatically deploy web applications to virtual private server whenever you push to a git repository
+                            automatically deploy web applications to any kind of server whenever you push to a git repository
                         </p>
                     </header>
                     <img src="uploads/server-shared.png" alt="">
@@ -38,7 +38,7 @@
                         BitBucket
                     </h3>
                     <p>
-                        Automatically deploy all your apps on bitbucket when you push to each repository. Login with your bitbucket account to proceed
+                        Automatically deploy all your apps on bitbucket when you push to each repository.
                     </p>
                     <p>
                         <a href="{{ route('login', 'bitbucket') }}">login with bitbucket<i class="fas fa-angle-right icon-right"></i></a>
@@ -50,7 +50,7 @@
                         GitHub
                     </h3>
                     <p>
-                        Automatically deploy all your apps on github when you push to each repository. Login with your github account to proceed
+                        Automatically deploy all your apps on github when you push to each repository.
                     </p>
                     <p>
                         <a href="{{ route('login', 'github') }}">login with github<i class="fas fa-angle-right icon-right"></i></a>
@@ -62,7 +62,7 @@
                         GitLab
                     </h3>
                     <p>
-                        Automatically deploy all your apps on gitlab when you push to each repository. Login with your gitlab account to proceed
+                        Automatically deploy all your apps on gitlab when you push to each repository.
                     </p>
                     <p>
                         <a href="{{ route('login', 'gitlab') }}">login with gitlab<i class="fas fa-angle-right icon-right"></i></a>

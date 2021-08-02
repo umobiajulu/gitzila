@@ -8,6 +8,7 @@
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="#"><i class="material-icons icon-20pt">home</i></a></li>
                         <li class="breadcrumb-item">{{ user()->host }}</li>
+                        <li class="breadcrumb-item">{{ user()->nickname }}</li>
                     </ol>
                 </nav>
             </div>
